@@ -1,0 +1,93 @@
+Functions in Python
+A function is a set of statements that take inputs, do some specific computation and produces output. The idea is to put some commonly or repeatedly done task together and make a function, so that instead of writing the same code again and again for different inputs, we can call the function.
+Python provides built-in functions like print(), etc. but we can also create your own functions. These functions are called user-defined functions.
+
+
+
+
+# A simple Python function to check 
+# whether x is even or odd 
+def evenOdd( x ): 
+    if (x % 2 == 0): 
+        print "even"
+    else: 
+        print "odd"
+  
+# Driver code 
+evenOdd(2) 
+evenOdd(3) 
+
+Pass by Reference or pass by value?
+One important thing to note is, in Python every variable name is a reference. When we pass a variable to a function, a new reference to the object is created. Parameter passing in Python is same as reference passing in Java.
+
+# Here x is a new reference to same list lst 
+def myFun(x): 
+   x[0] = 20
+  
+# Driver Code (Note that lst is modified 
+# after function call. 
+lst = [10, 11, 12, 13, 14, 15]  
+myFun(lst); 
+print(lst)  
+
+When we pass a reference and change the received reference to something else, the connection between passed and received parameter is broken. For example, consider below program.
+
+def myFun(x): 
+  
+   # After below line link of x with previous 
+   # object gets broken. A new object is assigned 
+   # to x. 
+   x = [20, 30, 40] 
+  
+# Driver Code (Note that lst is not modified 
+# after function call. 
+lst = [10, 11, 12, 13, 14, 15]  
+myFun(lst); 
+print(lst)  
+
+
+Default arguments:
+A default argument is a parameter that assumes a default value if a value is not provided in the function call for that argument.The following example illustrates Default arguments.
+
+# Python program to demonstrate 
+# default arguments 
+def myFun(x, y=50): 
+    print("x: ", x) 
+    print("y: ", y) 
+  
+# Driver code (We call myFun() with only 
+# argument) 
+myFun(10) 
+
+
+
+Variable length arguments:
+We can have both normal and keyword variable number of arguments. Please see this for details.
+
+# Python program to illustrate   
+# *args for variable number of arguments 
+def myFun(*argv):  
+    for arg in argv:  
+        print (arg) 
+    
+myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks')  
+
+
+
+the special syntax **kwargs in function definitions in python is used to pass a keyworded, variable-length argument list. We use the name kwargs with the double star. The reason is because the double star allows us to pass through keyword arguments (and any number of them).
+
+A keyword argument is where you provide a name to the variable as you pass it into the function.
+One can think of the kwargs as being a dictionary that maps each keyword to the value that we pass alongside it. That is why when we iterate over the kwargs there doesn’t seem to be any order in which they were printed out.
+Example for usage of **kwargs:
+
+# Python program to illustrate   
+# *kargs for variable number of keyword arguments 
+  
+def myFun(**kwargs):  
+    for key, value in kwargs.items(): 
+        print ("%s == %s" %(key, value)) 
+  
+# Driver code 
+myFun(first ='Geeks', mid ='for', last='Geeks')     
+
+
