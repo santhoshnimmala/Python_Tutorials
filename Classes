@@ -1,0 +1,37 @@
+class Tire:
+    """
+    Tire represents a tire that would be used with an automobile.
+    """
+
+    def __init__(self, tire_type, width, ratio, diameter,
+                 brand='', construction='R'):
+        self.tire_type = tire_type
+        self.width = width
+        self.ratio = ratio
+        self.diameter = diameter
+        self.brand = brand
+        self.construction = construction
+
+    def __repr__(self):
+        """
+        Represent the tire's information in the standard notation present
+        on the side of the tire. Example: 'P215/65R15'
+        """
+        return (f"{self.tire_type}{self.width}/{self.ratio}"
+                + f"{self.construction}{self.diameter}")
+                
+                
+   class Robot:
+    
+    def __init__(self, name):
+        self.name = name
+        
+    def say_hi(self):
+        print("Hi, I am " + self.name)
+        
+class PhysicianRobot(Robot):
+    def say_hi(self):
+        print("Everything will be okay! ") 
+        print(self.name + " takes care of you!")
+y = PhysicianRobot("James")
+y.say_hi()
